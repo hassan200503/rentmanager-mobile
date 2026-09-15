@@ -1,0 +1,47 @@
+name: Mobile release build
+
+# Manual: builds signed store binaries on EAS for one environment.
+# Requires the repository secret EXPO_TOKEN (an Expo robot token). Signing
+# keys, APNs/FCM credentials, the Sentry auth token and every EXPO_PUBLIC_*
+# value live in the EAS project environment — never in this repository.
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "EAS build profile"
+        required: true
+        type: choice
+        options: [staging, production]
+      platform:
+        description: "Platform"
+        required: true
+        type: choice
+        options: [all, android, ios]
+      submit:
+        description: "Submit production build to store internal track"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.16.0"
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck && npm run test:ci
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Build
+        run: eas build --profile ${{ inputs.profile }} --platform ${{ inputs.platform }} --non-interactive
+      - name: Submit
+        if: ${{ inputs.submit && inputs.profile == 'production' }}
+        run: eas submit --profile production --platform ${{ inputs.platform }} --latest --non-interactive

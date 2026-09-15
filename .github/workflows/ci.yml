@@ -1,0 +1,61 @@
+name: Mobile CI
+
+# Every push and pull request: dependency sanity, type check, unit tests
+# (including the API contract gate), and a real Metro bundle for both
+# platforms. Store builds are separate (release.yml) and need EAS credentials.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Type check, test and bundle
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    # Public, placeholder configuration only. Nothing here is a credential.
+    env:
+      APP_ENV: staging
+      EXPO_PUBLIC_API_BASE_URL: https://ci.invalid/api/v1
+      EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.16.0"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Expo dependency and config checks
+        run: npx --yes expo-doctor
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: API types match the committed OpenAPI snapshot
+        run: npm run api:check
+
+      - name: Unit tests
+        run: npm run test:ci
+
+      - name: Bundle Android and iOS JavaScript
+        run: |
+          npx expo export --platform android --output-dir dist/android
+          npx expo export --platform ios --output-dir dist/ios
+
+      - name: No secrets in the shipped bundles
+        run: |
+          if grep -a -r -E "sk_(test|live)_[A-Za-z0-9]{8,}|whsec_[A-Za-z0-9]+|CLERK_SECRET_KEY|DARAJA_(CONSUMER|PASSKEY|CALLBACK_SECRET)|CLOUDINARY_API_SECRET" dist/; then
+            echo "A secret-looking value was found in a bundle." >&2
+            exit 1
+          fi
