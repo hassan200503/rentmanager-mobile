@@ -11,6 +11,8 @@ The app is split into two primary user experiences:
 - Landlord experience: rent overview, occupancy status, maintenance triage, property and lease management screens
 - Renter experience: home dashboard, balance and due dates, M-Pesa payment flow, maintenance reporting, announcements, and lease details
 
+This is a client application that depends on a backend API, Clerk auth configuration, and environment-specific mobile build settings.
+
 ## Tech stack
 
 - Expo SDK 57
@@ -105,12 +107,17 @@ This project expects a client-safe environment file. Copy the sample file and fi
 cp .env.example .env
 ```
 
-At minimum, the app expects values such as:
+Required build/runtime values include:
 
-- `EXPO_PUBLIC_API_BASE_URL`
-- `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY`
-- optional: `EXPO_PUBLIC_CLERK_JWT_TEMPLATE`
-- optional: `EXPO_PUBLIC_WEB_APP_URL`
+- `APP_ENV` — build identity: `development`, `staging`, or `production`
+- `EXPO_PUBLIC_API_BASE_URL` — backend origin, including `/api/v1`
+- `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` — Clerk public key used by the mobile app
+
+Optional values include:
+
+- `EXPO_PUBLIC_CLERK_JWT_TEMPLATE` — defaults to `backend`
+- `EXPO_PUBLIC_WEB_APP_URL` — web app origin for large-screen flows
+- `EXPO_PUBLIC_SENTRY_DSN` — Sentry client DSN for monitoring
 
 The app validates these values at startup, and non-development builds require HTTPS for the API origin.
 
@@ -176,7 +183,7 @@ npm test
 
 ## Observability and monitoring
 
-The app integrates with Sentry through `@sentry/react-native` to capture runtime errors and monitor application health.
+The app integrates with Sentry through `@sentry/react-native` to capture runtime errors and monitor application health. Configure `EXPO_PUBLIC_SENTRY_DSN` in `.env` for local monitoring or leave it empty to disable it.
 
 ## Notes for contributors
 
@@ -192,4 +199,4 @@ This project includes an open-source license file in the repository root. Please
 
 ## Repository context
 
-This mobile app is designed for Kenyan rental management workflows and includes role-based experiences for both landlords and renters, with support for payment handling, maintenance reporting, negotiation of lease operations, and operational visibility into rent status.
+This mobile app is designed for Kenyan rental management workflows and includes role-based experiences for both landlords and renters, with support for payment handling, maintenance reporting, lease operations, and operational visibility into rent status.
