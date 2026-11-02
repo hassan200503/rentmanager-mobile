@@ -1,0 +1,25 @@
+# Landlord Screenshots
+
+Place landlord-specific screenshots here following the naming convention in `../README.md`.
+
+## Required Screenshots
+
+- `01-dashboard-home.png` - Main dashboard with rent summary
+- `02-rent-collection.png` - Monthly rent collection view
+- `03-occupancy-stats.png` - Unit occupancy overview
+- `04-overdue-entries.png` - Overdue payments list
+- `05-properties-list.png` - All properties overview
+- `06-property-detail.png` - Single property details
+- `07-add-property.png` - New property form
+- `08-units-list.png` - Units under a property
+- `09-maintenance-list.png` - All repair requests
+- `10-maintenance-detail.png` - Single repair request detail
+- `11-maintenance-photos.png` - Attached photos viewer
+- `12-maintenance-status-update.png` - Status change modal
+- `13-leases-list.png` - Active leases overview
+- `14-lease-detail.png` - Lease details with renter info
+- `15-record-payment.png` - Cash payment recording form
+- `16-more-screen.png` - Settings and account options
+- `17-notifications-list.png` - Notification center
+
+**Status**: 🟡 0/17 screenshots captured

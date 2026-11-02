@@ -1,0 +1,16 @@
+# Cross-Cutting Features Screenshots
+
+Place feature screenshots here that apply to both landlord and renter experiences.
+
+## Required Screenshots
+
+- `01-offline-banner.png` - No network connection indicator
+- `02-error-state.png` - Error state with retry button
+- `03-loading-state.png` - Loading skeleton/spinner
+- `04-empty-state.png` - Empty list state
+- `05-version-gate.png` - Update required screen
+- `06-session-rejected.png` - Session expired banner
+- `07-push-notification.png` - Push notification on lock screen
+- `08-deep-link-handling.png` - Notification tap → app screen
+
+**Status**: 🟡 0/8 screenshots captured

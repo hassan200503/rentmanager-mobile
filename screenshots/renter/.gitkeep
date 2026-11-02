@@ -1,0 +1,25 @@
+# Renter Screenshots
+
+Place renter-specific screenshots here following the naming convention in `../README.md`.
+
+## Required Screenshots
+
+- `01-dashboard-home.png` - Renter home with balance
+- `02-balance-breakdown.png` - Detailed balance view
+- `03-due-date-alert.png` - Rent due date notification
+- `04-payment-screen.png` - M-Pesa payment initiation
+- `05-payment-amount-input.png` - Custom amount entry
+- `06-payment-awaiting.png` - STK prompt sent
+- `07-payment-success.png` - Payment confirmed with receipt
+- `08-payment-history.png` - Past payments list
+- `09-report-issue.png` - New maintenance request form
+- `10-issue-photo-picker.png` - Photo attachment flow
+- `11-maintenance-list.png` - Renter's active requests
+- `12-maintenance-detail.png` - Request status & updates
+- `13-lease-details.png` - Active lease information
+- `14-announcements-list.png` - Landlord announcements
+- `15-announcement-detail.png` - Single announcement view
+- `16-more-screen.png` - Renter settings menu
+- `17-notification-preferences.png` - Push notification settings
+
+**Status**: 🟡 0/17 screenshots captured

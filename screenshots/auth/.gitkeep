@@ -1,0 +1,13 @@
+# Authentication & Onboarding Screenshots
+
+Place authentication and onboarding screenshots here following the naming convention in `../README.md`.
+
+## Required Screenshots
+
+- `01-splash-screen.png` - App splash screen with logo
+- `02-sign-in.png` - Clerk hosted sign-in page
+- `03-onboarding-welcome.png` - Landlord onboarding welcome
+- `04-onboarding-property.png` - Property setup flow
+- `05-persona-selection.png` - Landlord/Renter experience choice
+
+**Status**: 🟡 0/5 screenshots captured
