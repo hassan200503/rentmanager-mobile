@@ -50,3 +50,5 @@ google-services.json
 GoogleService-Info.plist
 *.keystore
 service-account*.json
+
+README_OLD_BACKUP.md
