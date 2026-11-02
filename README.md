@@ -110,6 +110,51 @@
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+
+### 🏠 Landing & Property Search
+
+<table>
+<tr>
+<td width="33%" align="center">
+<img src="screenshots/features/01-landing-page.jpg" width="250" alt="Landing Page" />
+<br />
+<b>Landing Page</b>
+<br />
+<sub>Move in with confidence - Kenya's trusted rental platform</sub>
+</td>
+<td width="33%" align="center">
+<img src="screenshots/features/02-property-search.jpg" width="250" alt="Property Search" />
+<br />
+<b>Property Search</b>
+<br />
+<sub>Advanced filters: location, rent range, property type</sub>
+</td>
+<td width="33%" align="center">
+<img src="screenshots/features/03-home-screen.jpg" width="250" alt="Home Screen" />
+<br />
+<b>Home Screen</b>
+<br />
+<sub>Search vacancies with M-Pesa payment integration</sub>
+</td>
+</tr>
+</table>
+
+### 🎯 Key Features Demonstrated
+
+- ✅ **Professional UI/UX** - Clean, modern dark theme design
+- ✅ **M-Pesa Integration** - "Pay your deposit by M-Pesa — no agents, no broker fees"
+- ✅ **Trust Indicators** - "Kenya's Trusted Rental Platform", approved landlords badge
+- ✅ **Smart Search** - Location-based property search with advanced filters
+- ✅ **Secure Platform** - "Every payment is receipted and kept on a record you can check"
+- ✅ **Digital Leases** - Paperless lease management system
+
+</div>
+
+---
+
 ## 🏗️ Architecture
 
 ### System Overview
